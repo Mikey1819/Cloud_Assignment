@@ -44,7 +44,7 @@ $conn->close();
         <?php include 'nav.php'; ?>
         <div class="container mt-5 mb-5 col-md-6">
             <div class="edit-container">
-                <a href="../product-table.php" class="return-btn">
+                <a href="../PhpProject1/product-table.php" class="return-btn">
                     <i class="bi bi-arrow-left-circle-fill"></i>
                 </a>
 
