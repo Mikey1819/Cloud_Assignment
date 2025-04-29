@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'db-cloud.czgog2qqq1ar.us-east-1.rds.amazonaws.com');
 define('DB_USER', 'root');
 define('DB_PASS', 'assignment-pass');
 define('DB_NAME', 'cloud');
