@@ -22,11 +22,15 @@ if ($searchTerm) {
     $orderQuery .= " WHERE order_id LIKE '%$searchTerm%'";  // Search by Order ID
 }
 
-// Add LIMIT and OFFSET to the query for pagination
-$orderQuery .= " LIMIT $recordsPerPage OFFSET $offset";
+// Temporarily remove pagination for debugging
+//$orderQuery .= " LIMIT $recordsPerPage OFFSET $offset";
 
 // Get the orders for the current page
 $orderResult = $conn->query($orderQuery);
+if (!$orderResult) {
+    die("Order query failed: " . $conn->error);
+}
+echo '<div style="color:red;">Debug: Number of orders found: ' . $orderResult->num_rows . '</div>';
 
 // Query to get the total number of records for pagination calculation
 $totalQuery = "SELECT COUNT(*) AS total FROM order_re";
