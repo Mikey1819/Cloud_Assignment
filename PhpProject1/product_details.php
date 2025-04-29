@@ -28,7 +28,7 @@ $product = $result->fetch_assoc();
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="css/default.css"/>
         <link rel="stylesheet" href="css/nav.css"/>
-        <link rel="icon" type="image/jpeg" href="/PhpProject1/img/logo.jpg"/>
+        <link rel="icon" type="image/jpg" href="/img/logo.jpg"/>
         <style>
             .product-details-card {
                 border: none;
