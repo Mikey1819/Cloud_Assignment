@@ -14,7 +14,7 @@ require_once 'helper.php';
         <link rel="stylesheet" href="css/default.css"/>
         <link rel="stylesheet" href="css/product.css"/>
         <link rel="stylesheet" href="css/nav.css"/>
-        <link rel="icon" type="image/jpg" href="/img/logo.jpg"/>
+        <link rel="icon" type="image/jpg" href="img/logo.jpg"/>
     </head>
 
     <body>

@@ -45,7 +45,7 @@ $totalPages = ceil($totalProducts / $productsPerPage);
         <link rel="stylesheet" href="css/default.css"/>
         <link rel="stylesheet" href="css/nav.css"/>
         <link rel="stylesheet" href="css/dashboard.css"/>
-        <link rel="icon" type="image/jpg" href="/img/logo.jpg"/>
+        <link rel="icon" type="image/jpg" href="img/logo.jpg"/>
     </head>
     <body>
         <!-- Include nav -->
