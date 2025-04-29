@@ -116,70 +116,10 @@ $totalPages = ceil($totalRows / $recordsPerPage);
                         <?php
                         // Check if there are any orders
                         if ($orderResult->num_rows > 0) {
-                            // Fetch each order
                             while ($order = $orderResult->fetch_assoc()) {
-                                $orderId = $order['order_id'];
-                                $totalAmount = $order['total_amount'];
-                                $orderDate = $order['order_date'];
-
-                                // Query to get the items for the current order
-                                $orderItemQuery = "SELECT oi.product_id, oi.quantity, oi.price, p.product_name \
-                                                   FROM order_item oi\
-                                                   JOIN product p ON oi.product_id = p.product_id\
-                                                   WHERE oi.order_id = $orderId";
-                                $orderItemResult = $conn->query($orderItemQuery);
-                                ?>
-
-                                <tr>
-                                    <td><?php echo 'O' . sprintf('%03d', $orderId); ?></td>
-                                    <td><?php echo number_format($totalAmount, 2); ?></td>
-                                    <td><?php echo $orderDate; ?></td>
-                                    <td style="width: 20%">
-                                        <button class="btn edit-btn btn-sm toggle-details" data-target="details-<?php echo $orderId; ?>">
-                                            <i class="bi bi-eye"></i> View Details
-                                        </button>
-                                        <a href="crud/delete_order.php?id=<?php echo $orderId; ?>" class="btn delete-btn btn-sm" onclick="return confirm('Are you sure you want to delete this order?')">
-                                            <i class="bi bi-trash"></i> Delete
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr class="details-row" id="details-<?php echo $orderId; ?>" style="display: none;">
-                                    <td colspan="5">
-                                        <table class="table table-bordered">
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th>Product ID</th>
-                                                    <th>Product Name</th>
-                                                    <th>Quantity</th>
-                                                    <th>Unit Price (RM)</th>
-                                                    <th>Subtotal (RM)</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                // Fetch order items
-                                                while ($item = $orderItemResult->fetch_assoc()) {
-                                                    $productId = $item['product_id'];
-                                                    $productName = $item['product_name'];
-                                                    $quantity = $item['quantity'];
-                                                    $price = $item['price'];
-                                                    $subtotal = $quantity * $price;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo 'P' . sprintf('%03d', $productId); ?></td>
-                                                        <td><?php echo $productName; ?></td>
-                                                        <td><?php echo $quantity; ?></td>
-                                                        <td><?php echo number_format($price, 2); ?></td>
-                                                        <td><?php echo number_format($subtotal, 2); ?></td>
-                                                    </tr>
-                                                <?php } ?>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-
-                                <?php
+                                echo '<tr><td colspan="4"><pre>';
+                                print_r($order);
+                                echo '</pre></td></tr>';
                             }
                         } else {
                             echo "<tr><td colspan='4'>No orders found</td></tr>";
