@@ -20,7 +20,7 @@
                         <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
                         <h2 class="mt-3">Payment Successful!</h2>
                         <p class="lead">Thank you for your purchase. Your transaction has been completed successfully.</p>
-                        <a href="product.php" class="btn btn-success mt-3">
+                        <a href="index.php" class="btn btn-success mt-3">
                             <i class="bi bi-house-door-fill"></i> Return to Home
                         </a>
                     </div>

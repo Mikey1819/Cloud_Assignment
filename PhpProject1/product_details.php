@@ -98,7 +98,7 @@ $product = $result->fetch_assoc();
                                 </button>
                             <?php endif; ?>
 
-                            <a href="product.php" class="btn btn-outline-secondary btn-add-cart ms-3">
+                            <a href="index.php" class="btn btn-outline-secondary btn-add-cart ms-3">
                                 <i class="fas fa-arrow-left"></i> Back to Products
                             </a>
                         </div>
