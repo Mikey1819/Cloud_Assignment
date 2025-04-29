@@ -11,8 +11,8 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <!-- Navigation links aligned to the left -->
                         <ul class="navbar-nav me-auto">
-                            <li class="nav-item"><a class="nav-link" id="homeLink" href="product.php">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" id="homeLink" href="product.php">Product</a></li>
+                            <li class="nav-item"><a class="nav-link" id="homeLink" href="index.php">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" id="homeLink" href="index.php">Product</a></li>
                             <li class="nav-item"><a class="nav-link" id="homeLink" href="product-table.php">Dashboard</a></li>
                         </ul>
 
