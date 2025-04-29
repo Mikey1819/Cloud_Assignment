@@ -1,0 +1,51 @@
+/*------------------------- Second Bar --------------------------------*/
+/* Make the navv sticky */
+.navv {
+    position: sticky; /* Make navbar sticky */
+    top: -1px; /* Stick to the top when scrolling */
+    z-index: 1000; /* Ensure it's on top of other content */
+    background-color: #faf9f6; /* White with overlay effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar link styles */
+.navbar-nav {
+    margin-right: auto;
+    font-size: 16.5px;
+    text-transform: uppercase;
+}
+
+.nav-item a {
+    color: red; /* Changed to red */
+    margin-right: 30px;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar-nav .nav-item a {
+    color: red; /* Changed to red */
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item a:hover,
+.navbar-nav .nav-item a.active {
+    color: darkred; /* Optional: darker red on hover/active */
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item a:focus {
+    outline: none;
+}
+
+/* Button styling */
+.btn {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Initial shadow */
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+

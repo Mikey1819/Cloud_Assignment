@@ -1,0 +1,110 @@
+/*------------- Sidebar Styles ------------------*/
+.sidebar{
+    height: 45vh;
+    background-color: #0073cf;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 0 10px 10px 0;
+}
+
+.dashboard-text{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-weight: bold;
+    padding: 10px;
+    white-space: nowrap;
+}
+.sidebar:hover {
+    width: 210px;
+}
+.sidebar:hover .sidebar-content {
+    display: flex !important;
+}
+.sidebar:hover .dashboard-text {
+    display: none;
+}
+
+/*------------- Sidebar link Hover Styles ------------------*/
+.sidebar-link {
+    transition: background-color 0.3s, padding-left 0.3s;
+    border-radius: 5px;
+}
+.sidebar-link:hover {
+    background-color: #324ab2;
+    padding-left: 10px;
+}
+.table-section{
+    margin-left: 130px;
+    margin-bottom: 220px;
+    padding-top: 50px;
+}
+/*--------------------- Search bar style ------------------------*/
+.search-container{
+    display: flex;
+    align-items: center;
+}
+.search-container input{
+    margin-right: 10px;
+}
+
+/*--------------------- table style ------------------------*/
+.table img{
+    max-width: 150px;
+
+}
+.table-dark {
+    --bs-table-bg: #0073cf;
+}
+
+.btn{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Initial shadow */
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+.table-section .edit-btn{
+    background-color: #0073cf !important;
+    border: none !important;
+    color: white;
+}
+.table-section .edit-btn:hover{
+    background-color: #324ab2 !important;
+
+}
+.table-section .delete-btn{
+    background-color: red;
+    border: none !important;
+    color: white;
+}
+.table-section .delete-btn:hover{
+    background-color: #800000;
+}
+
+/* Pagination Styling */
+.pagination-container {
+    margin-top: 50px;
+}
+
+.pagination .page-link {
+    color: white;
+    margin: 2px;
+    transition: 0.3s ease;
+    padding: 8px 12px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: #0073cf;
+}
+
+.pagination .page-link:hover {
+    background-color: white;
+    color: #0073cf;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 10px rgba(86, 61, 124, 0.4); /* Hover effect */
+}
+

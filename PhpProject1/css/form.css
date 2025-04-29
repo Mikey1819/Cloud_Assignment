@@ -1,0 +1,78 @@
+.edit-container {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.return-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #0073cf;
+    transition: 0.3s;
+}
+
+.return-btn:hover {
+    color: #324ab2;
+    transform: scale(1.1);
+}
+
+.form-label {
+    font-weight: bold;
+    color: #0073cf;
+}
+
+/* Input Fields, Select, and Textarea Styling */
+.form-control, .form-select {
+    border: 2px solid #0073cf;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Focus (Click) Effect - Hover Shadow */
+.form-control:focus, .form-select:focus, textarea:focus {
+    border-color: #324ab2;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.6);
+    transform: scale(1.02);
+}
+
+.btn-primary {
+    background-color: #0073cf;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #324ab2;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.heading {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-control[readonly] {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+/* Custom file input style */
+.custom-file-input {
+    border: 2px solid #0073cf;
+    border-radius: 8px;
+}
