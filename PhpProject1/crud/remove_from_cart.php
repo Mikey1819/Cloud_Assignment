@@ -5,7 +5,7 @@ if (isset($_GET['cart_id'])) {
     $cart_id = intval($_GET['cart_id']);
 
     // Delete the item from Cart table
-    $sql = "DELETE FROM Cart WHERE cart_id = $cart_id";
+    $sql = "DELETE FROM cart WHERE cart_id = $cart_id";
 
     if ($conn->query($sql) === TRUE) {
         // Successfully deleted

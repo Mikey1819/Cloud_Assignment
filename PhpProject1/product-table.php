@@ -15,7 +15,7 @@ $offset = ($page - 1) * $productsPerPage;
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
 // SQL query to get the products with pagination
-$sql = "SELECT * FROM Product WHERE product_id LIKE ? OR product_name LIKE ? LIMIT ? OFFSET ?";
+$sql = "SELECT * FROM product WHERE product_id LIKE ? OR product_name LIKE ? LIMIT ? OFFSET ?";
 $stmt = $conn->prepare($sql);
 $searchTermWildcard = "%" . $searchTerm . "%";  // Prepare the search term with wildcards
 $stmt->bind_param("ssii", $searchTermWildcard, $searchTermWildcard, $productsPerPage, $offset);  // Bind parameters
@@ -23,7 +23,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 // Query to count the total number of products for pagination
-$countSql = "SELECT COUNT(*) AS total FROM Product WHERE product_id LIKE ? OR product_name LIKE ?";
+$countSql = "SELECT COUNT(*) AS total FROM product WHERE product_id LIKE ? OR product_name LIKE ?";
 $countStmt = $conn->prepare($countSql);
 $countStmt->bind_param("ss", $searchTermWildcard, $searchTermWildcard);
 $countStmt->execute();

@@ -11,13 +11,13 @@ if (isset($_GET['id'])) {
 
     try {
         // Delete the order items from Order_Item table
-        $deleteOrderItemsQuery = "DELETE FROM Order_Item WHERE order_id = ?";
+        $deleteOrderItemsQuery = "DELETE FROM order_item WHERE order_id = ?";
         $stmt = $conn->prepare($deleteOrderItemsQuery);
         $stmt->bind_param("i", $orderId);
         $stmt->execute();
 
         // Delete the order from Order_re table
-        $deleteOrderQuery = "DELETE FROM Order_re WHERE order_id = ?";
+        $deleteOrderQuery = "DELETE FROM order_re WHERE order_id = ?";
         $stmt = $conn->prepare($deleteOrderQuery);
         $stmt->bind_param("i", $orderId);
         $stmt->execute();

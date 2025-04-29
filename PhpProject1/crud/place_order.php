@@ -6,9 +6,9 @@ $conn->begin_transaction();
 
 try {
     // Loop through cart items and check stock
-    $cartSql = "SELECT Cart.cart_id, Cart.product_id, Cart.quantity, Product.price, Product.stock_quantity, Product.product_name
-                FROM Cart
-                JOIN Product ON Cart.product_id = Product.product_id";
+    $cartSql = "SELECT cart.cart_id, cart.product_id, cart.quantity, product.price, product.stock_quantity, product.product_name
+                FROM cart
+                JOIN product ON cart.product_id = product.product_id";
     $cartResult = $conn->query($cartSql);
 
     // Check if any product quantity exceeds the available stock
@@ -25,9 +25,9 @@ try {
     }
 
     // Proceed to create the order if stock is sufficient
-    // Insert into Order_re table
+    // Insert into order_re table
     $totalAmount = 0;
-    $sql = "INSERT INTO Order_re (total_amount) VALUES (?)";
+    $sql = "INSERT INTO order_re (total_amount) VALUES (?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("d", $totalAmount);
     $stmt->execute();
@@ -35,7 +35,7 @@ try {
     // Get the last inserted order_id
     $orderId = $stmt->insert_id;
 
-    // Loop through cart items and insert into Order_Item
+    // Loop through cart items and insert into order_item
     $cartResult->data_seek(0); // Reset the result pointer
     while ($cartRow = $cartResult->fetch_assoc()) {
         $productId = $cartRow['product_id'];
@@ -43,22 +43,22 @@ try {
         $price = $cartRow['price'];
         $totalAmount += $price * $quantity; // Calculate total amount for the order
 
-        // Insert into Order_Item table
-        $orderItemSql = "INSERT INTO Order_Item (order_id, product_id, quantity, price) 
+        // Insert into order_item table
+        $orderItemSql = "INSERT INTO order_item (order_id, product_id, quantity, price) 
                          VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($orderItemSql);
         $stmt->bind_param("iiid", $orderId, $productId, $quantity, $price);
         $stmt->execute();
 
-        // Decrease the stock in the Product table
-        $updateStockSql = "UPDATE Product SET stock_quantity = stock_quantity - ? WHERE product_id = ?";
+        // Decrease the stock in the product table
+        $updateStockSql = "UPDATE product SET stock_quantity = stock_quantity - ? WHERE product_id = ?";
         $stmt = $conn->prepare($updateStockSql);
         $stmt->bind_param("ii", $quantity, $productId);
         $stmt->execute();
     }
 
-    // Update the total amount in the Order_re table
-    $updateOrderTotalSql = "UPDATE Order_re SET total_amount = ? WHERE order_id = ?";
+    // Update the total amount in the order_re table
+    $updateOrderTotalSql = "UPDATE order_re SET total_amount = ? WHERE order_id = ?";
     $stmt = $conn->prepare($updateOrderTotalSql);
     $stmt->bind_param("di", $totalAmount, $orderId);
     $stmt->execute();
@@ -67,7 +67,7 @@ try {
     $conn->commit();
 
     // Clear the cart after the order is placed
-    $clearCartSql = "DELETE FROM Cart";
+    $clearCartSql = "DELETE FROM cart";
     $conn->query($clearCartSql);
 
     // Redirect to the success page

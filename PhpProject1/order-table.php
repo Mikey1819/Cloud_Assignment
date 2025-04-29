@@ -16,7 +16,7 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($currentPage - 1) * $recordsPerPage;
 
 // Modify the SQL query to include a search filter if a search term is provided
-$orderQuery = "SELECT * FROM Order_re";
+$orderQuery = "SELECT * FROM order_re";
 if ($searchTerm) {
     $searchTerm = $conn->real_escape_string($searchTerm);  // Escape user input for security
     $orderQuery .= " WHERE order_id LIKE '%$searchTerm%'";  // Search by Order ID
@@ -29,7 +29,7 @@ $orderQuery .= " LIMIT $recordsPerPage OFFSET $offset";
 $orderResult = $conn->query($orderQuery);
 
 // Query to get the total number of records for pagination calculation
-$totalQuery = "SELECT COUNT(*) AS total FROM Order_re";
+$totalQuery = "SELECT COUNT(*) AS total FROM order_re";
 if ($searchTerm) {
     $totalQuery .= " WHERE order_id LIKE '%$searchTerm%'";
 }
@@ -119,9 +119,9 @@ $totalPages = ceil($totalRows / $recordsPerPage);
                                 $orderDate = $order['order_date'];
 
                                 // Query to get the items for the current order
-                                $orderItemQuery = "SELECT oi.product_id, oi.quantity, oi.price, p.product_name 
-                                                   FROM Order_Item oi
-                                                   JOIN Product p ON oi.product_id = p.product_id
+                                $orderItemQuery = "SELECT oi.product_id, oi.quantity, oi.price, p.product_name \
+                                                   FROM order_item oi\
+                                                   JOIN product p ON oi.product_id = p.product_id\
                                                    WHERE oi.order_id = $orderId";
                                 $orderItemResult = $conn->query($orderItemQuery);
                                 ?>

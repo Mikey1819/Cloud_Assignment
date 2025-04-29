@@ -8,7 +8,7 @@ if (!isset($_GET['product_id'])) {
 }
 
 $product_id = intval($_GET['product_id']);
-$sql = "SELECT * FROM Product WHERE product_id = $product_id";
+$sql = "SELECT * FROM product WHERE product_id = $product_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows != 1) {

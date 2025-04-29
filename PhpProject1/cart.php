@@ -1,9 +1,9 @@
 <?php
 include 'helper.php'; // Make sure you have db_connection.php that connects to $conn
 // Fetch all cart items with product information
-$sql = "SELECT Cart.cart_id, Cart.quantity, Product.product_name, Product.price, Product.image_url, Product.description
-        FROM Cart
-        JOIN Product ON Cart.product_id = Product.product_id";
+$sql = "SELECT cart.cart_id, cart.quantity, product.product_name, product.price, product.image_url, product.description
+        FROM cart
+        JOIN product ON cart.product_id = product.product_id";
 $result = $conn->query($sql);
 ?>
 

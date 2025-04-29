@@ -6,7 +6,7 @@ if (isset($_GET['cart_id']) && isset($_GET['action'])) {
     $action = $_GET['action'];
 
     // Fetch current quantity first
-    $sql = "SELECT quantity FROM Cart WHERE cart_id = $cart_id";
+    $sql = "SELECT quantity FROM cart WHERE cart_id = $cart_id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -23,7 +23,7 @@ if (isset($_GET['cart_id']) && isset($_GET['action'])) {
         }
 
         // Update quantity
-        $update_sql = "UPDATE Cart SET quantity = $quantity WHERE cart_id = $cart_id";
+        $update_sql = "UPDATE cart SET quantity = $quantity WHERE cart_id = $cart_id";
         $conn->query($update_sql);
     }
 }
